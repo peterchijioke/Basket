@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   forgotTxt: {
     fontSize: 18,
     color: 'tomato',
-    marginTop: 20,
+    marginTop: 30,
     borderBottomColor: 'tomato',
     borderBottomWidth: 1,
   },
