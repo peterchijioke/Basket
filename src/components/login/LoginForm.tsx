@@ -6,8 +6,12 @@ import CheckBox from '@react-native-community/checkbox';
 import AppText from '../common/AppText';
 import LoginButton from './LoginButton';
 import EmailSection from './EmailSection';
+import {useNavigation} from '@react-navigation/native';
+import {homeScreenID} from '../../screens/Home';
+import {tabName} from '../../routes/Tabs';
 
 export default function LoginForm() {
+  const navigation = useNavigation();
   const [toggleCheckBox, setToggleCheckBox] = useState<boolean>(false);
   return (
     <View style={styles.wrapper}>
@@ -21,7 +25,11 @@ export default function LoginForm() {
         />
         <AppText>Remember me</AppText>
       </View>
-      <LoginButton onClick={() => {}} />
+      <LoginButton
+        onClick={() => {
+          navigation.navigate(tabName, {screen: `${homeScreenID}`});
+        }}
+      />
       <AppText styles={styles.forgotTxt}>Forgot Password?</AppText>
       <EmailSection />
     </View>

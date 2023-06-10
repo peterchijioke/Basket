@@ -16,7 +16,8 @@ const Route = () => {
         <Stack.Group>
           <Stack.Screen
             options={{
-              headerStyle: {backgroundColor: '#133'},
+              headerShown: false,
+              headerStyle: {backgroundColor: '#112e42'},
             }}
             name={tabName}
             component={Tabs}

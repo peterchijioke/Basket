@@ -13,12 +13,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AppText from '../components/common/AppText';
+
 import Home, {homeScreenID} from '../screens/Home';
 import Saved, {savedScreenID} from '../screens/Saved';
 import Account, {accountScreenID} from '../screens/Account';
 import Cart, {cartScreenID} from '../screens/Cart';
+import Header from '../components/common/Header';
+import TabHeader from '../components/common/TabHeader';
 
 export const tabName = 'Tab';
 const headerImage = {uri: 'https://www.w3schools.com/w3images/lights.jpg'};
@@ -26,56 +27,44 @@ const headerImage = {uri: 'https://www.w3schools.com/w3images/lights.jpg'};
 export default function Tabs() {
   const navigation = useNavigation();
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <View style={styles.cartTop}>
-          <Ionicons
-            style={{textAlign: 'center'}}
-            color="white"
-            name="cart-outline"
-            size={20}
-          />
-        </View>
-      ),
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerLeft: () => (
+  // <View style={styles.cartTop}>
+  //   <Ionicons
+  //     style={{textAlign: 'center'}}
+  //     color="white"
+  //     name="cart-outline"
+  //     size={20}
+  //   />
+  // </View>
+  //     ),
 
-      headerTitle: () => (
-        <View
-          style={{
-            width: '82%',
-            marginLeft: 5,
-            marginRight: 5,
-            borderRadius: 5,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            overflow: 'hidden',
-            backgroundColor: 'white',
-            padding: 2,
-          }}>
-          <Ionicons name="search" size={20} />
-          <TextInput
-            style={{
-              flexGrow: 1,
-              backgroundColor: 'transparent',
-              borderRadius: 5,
-              padding: 5,
-            }}
-            placeholder="Search"
-          />
-        </View>
-      ),
-      headerRight: () => (
-        <View style={{marginLeft: 20}}>
-          <Ionicons size={25} name="menu" color="tomato" />
-        </View>
-      ),
-    });
-  }, []);
+  //     headerTitle: () => (
+  //       <View style={styles.wrap}>
+  //         <Ionicons name="search" size={20} />
+  //         <TextInput
+  //           style={{
+  //             flexGrow: 1,
+  //             backgroundColor: 'transparent',
+  //             borderRadius: 5,
+  //             padding: 5,
+  //           }}
+  //           placeholder="Search"
+  //         />
+  //       </View>
+  //     ),
+  //     headerRight: () => (
+  //       <View style={{marginLeft: 20}}>
+  //         <Ionicons size={25} name="menu" color="tomato" />
+  //       </View>
+  //     ),
+  //   });
+  // }, []);
 
   return (
     <React.Fragment>
+      <TabHeader />
       <StatusBar barStyle="light-content" backgroundColor="#133" />
       <Tab.Navigator
         screenOptions={({route}) => ({
@@ -140,5 +129,18 @@ const styles: any = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'tomato',
     borderRadius: 20,
+  },
+  wrap: {
+    width: '82%',
+    marginLeft: 5,
+    marginRight: 5,
+    borderRadius: 5,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    padding: 2,
   },
 });

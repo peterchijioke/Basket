@@ -9,7 +9,7 @@ export default function LoginButton({...props}) {
       style={{
         width: '80%',
         height: 50,
-        backgroundColor: '#133',
+        backgroundColor: '#112e42',
         borderRadius: 5,
         justifyContent: 'center',
       }}
