@@ -31,14 +31,14 @@ export default function HomeLayout() {
         <View style={styles.bg}>
           <Image
             style={styles.headerImage}
-            source={user ? {uri: `${user.image}`} : headerImage}
+            source={user ? {uri: `${user?.image}`} : headerImage}
           />
           <View style={styles.txtWrap}>
             <AppText
               styles={
                 styles.title
-              }>{`${user.firstName} ${user.lastName}`}</AppText>
-            <AppText>{user.email}</AppText>
+              }>{`${user?.firstName} ${user?.lastName}`}</AppText>
+            <AppText>{user?.email}</AppText>
           </View>
         </View>
       </View>
