@@ -4,7 +4,7 @@ import AppText from '../common/AppText';
 const CardItem = ({title, icon}: {title: string; icon: any}) => (
   <TouchableOpacity style={styles.itemInnerWrap}>
     <View style={styles.iconWrap}>{icon}</View>
-    <AppText style={styles.title}>{title}</AppText>
+    <AppText styles={styles.title}>{title}</AppText>
   </TouchableOpacity>
 );
 
