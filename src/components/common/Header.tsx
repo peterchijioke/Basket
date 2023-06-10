@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     width: '100%',
-    backgroundColor: 'white',
-    elevation: 7,
+    backgroundColor: 'transparent',
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

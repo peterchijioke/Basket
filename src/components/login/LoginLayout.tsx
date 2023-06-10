@@ -35,7 +35,7 @@ const LoginTextTop = ({}) => (
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
