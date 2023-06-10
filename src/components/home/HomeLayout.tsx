@@ -11,13 +11,8 @@ export default function HomeLayout() {
         <View style={styles.bg}>
           <Image style={styles.headerImage} source={headerImage} />
           <View style={styles.txtWrap}>
-            <AppText style={styles.title}>Daniel Obi</AppText>
-            <AppText
-              style={{
-                color: '#133',
-              }}>
-              danielobi@gmail.com
-            </AppText>
+            <AppText styles={styles.title}>Daniel Obi</AppText>
+            <AppText>danielobi@gmail.com</AppText>
           </View>
         </View>
       </View>
@@ -37,7 +32,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black',
   },
 
   itemCardWrap: {

@@ -3,6 +3,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs, {tabName} from './Tabs';
+import Login from '../screens/Login';
 const Stack = createNativeStackNavigator();
 
 const Route = () => {
@@ -23,14 +24,9 @@ const Route = () => {
         </Stack.Group>
         {/* ) : ( */}
         <Stack.Group screenOptions={{headerShown: false}}>
-          {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
-          {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
+          <Stack.Screen name="SignIn" component={Login} />
         </Stack.Group>
         {/* )} */}
-        <Stack.Group screenOptions={{headerShown: false}}>
-          {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
-          {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
-        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );
