@@ -5,11 +5,11 @@ import CardItemWrap from './CardItemWrap';
 import {_retrieveUser} from '../../services/general';
 import {UserInterface} from '../../types';
 import {useNavigation} from '@react-navigation/native';
-import {getUser, getUserService, loginSevice} from '../../services/Api';
+import {getUserService, loginSevice} from '../../services/Api';
 const headerImage = {uri: 'https://www.w3schools.com/w3images/lights.jpg'};
 export default function HomeLayout() {
   const navigation: any = useNavigation();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<any>();
   const getToken = async () => {
     const {token}: UserInterface | null | any = await _retrieveUser();
     if (!token) {
@@ -29,10 +29,16 @@ export default function HomeLayout() {
     <View style={styles.wrapper}>
       <View style={{...styles.profileWrap, height: height / 5}}>
         <View style={styles.bg}>
-          <Image style={styles.headerImage} source={headerImage} />
+          <Image
+            style={styles.headerImage}
+            source={user ? {uri: `${user.image}`} : headerImage}
+          />
           <View style={styles.txtWrap}>
-            <AppText styles={styles.title}>Daniel Obi</AppText>
-            <AppText>danielobi@gmail.com</AppText>
+            <AppText
+              styles={
+                styles.title
+              }>{`${user.firstName} ${user.lastName}`}</AppText>
+            <AppText>{user.email}</AppText>
           </View>
         </View>
       </View>
@@ -48,6 +54,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'white',
   },
   title: {
     fontSize: 20,
