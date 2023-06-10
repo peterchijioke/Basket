@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, StyleSheet, ScrollView, Alert} from 'react-native';
+import React, {Dispatch, SetStateAction, useState} from 'react';
 import AppTextInputEmail from '../common/AppTextInputEmail';
 import AppTextInputPassword from '../common/AppTextInputPassword';
 import CheckBox from '@react-native-community/checkbox';
@@ -7,16 +7,46 @@ import AppText from '../common/AppText';
 import LoginButton from './LoginButton';
 import EmailSection from './EmailSection';
 import {useNavigation} from '@react-navigation/native';
-import {homeScreenID} from '../../screens/Home';
+import {loginSevice} from '../../services/Api';
+import {_storeUser} from '../../services/general';
+import {UserInterface} from '../../types';
 import {tabName} from '../../routes/Tabs';
+import {homeScreenID} from '../../screens/Home';
 
 export default function LoginForm() {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
+  const [email, setEmail] = useState<string>('kminchelle');
+  const [password, setPassword] = useState<string>('0lelplR');
   const [toggleCheckBox, setToggleCheckBox] = useState<boolean>(false);
+  const handleChange =
+    (setState: Dispatch<SetStateAction<string>>) => (text: string) => {
+      setState(text);
+    };
+  const handleLogin = async () => {
+    try {
+      if (email === '' && password === '') {
+        Alert.alert('Please enter email and password');
+        return;
+      }
+      const result = await loginSevice(email, password);
+      const data: UserInterface = await result?.json();
+      _storeUser(data);
+      navigation.navigate(tabName, {screen: `${homeScreenID}`});
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
   return (
     <View style={styles.wrapper}>
-      <AppTextInputEmail styles={{marginBottom: 15}} />
-      <AppTextInputPassword />
+      <AppTextInputEmail
+        value={email}
+        onChangeText={handleChange(setEmail)}
+        styles={{marginBottom: 15}}
+      />
+      <AppTextInputPassword
+        value={password}
+        onChangeText={handleChange(setPassword)}
+      />
       <View style={styles.checkboxWrapper}>
         <CheckBox
           disabled={false}
@@ -25,11 +55,7 @@ export default function LoginForm() {
         />
         <AppText>Remember me</AppText>
       </View>
-      <LoginButton
-        onClick={() => {
-          navigation.navigate(tabName, {screen: `${homeScreenID}`});
-        }}
-      />
+      <LoginButton onClick={handleLogin} />
       <AppText styles={styles.forgotTxt}>Forgot Password?</AppText>
       <EmailSection />
     </View>

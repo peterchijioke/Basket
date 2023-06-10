@@ -7,6 +7,8 @@ export default function AppTextInputEmail({...props}) {
     <View style={{...styles.wrapper, ...props.styles}} {...props}>
       <Envelop color={'tomato'} name="envelope" size={25} />
       <TextInput
+        value={props.value}
+        onChangeText={props.onChangeText}
         style={styles.inputEmail}
         keyboardType="email-address"
         placeholder="Email"

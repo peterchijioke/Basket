@@ -12,6 +12,7 @@ export default function AppTextInputPassword({...props}) {
         secureTextEntry={eyeState}
         style={styles.inputEmail}
         placeholder="Password"
+        value={props.value}
       />
       {eyeState ? (
         <Eye

@@ -6,7 +6,12 @@ import {Colors} from '../../utils';
 
 export default function TabHeader() {
   return (
-    <View style={{...styles.wrapper, height: 60}}>
+    <View
+      style={{
+        ...styles.wrapper,
+        height: 60,
+        marginTop: StatusBar.currentHeight,
+      }}>
       <View style={styles.cartTop}>
         <Ionicons
           style={{textAlign: 'center'}}
