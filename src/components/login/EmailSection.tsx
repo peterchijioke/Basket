@@ -18,7 +18,7 @@ export default function EmailSection() {
       <View style={styles.btnWrap}>
         <LoginSocialButton
           title="Facebook"
-          icon={<GoogleIcon color={'tomato'} name="logo-facebook" size={25} />}
+          icon={<GoogleIcon color={'skyblue'} name="logo-facebook" size={25} />}
         />
         <LoginSocialButton
           title="Google"
