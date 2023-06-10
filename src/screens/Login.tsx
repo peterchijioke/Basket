@@ -5,3 +5,5 @@ import LoginLayout from '../components/login/LoginLayout';
 export default function Login() {
   return <LoginLayout />;
 }
+
+export const loginSreenID = 'Login';
