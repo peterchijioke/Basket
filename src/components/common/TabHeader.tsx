@@ -2,6 +2,7 @@ import {View, Text, StyleSheet, StatusBar, TextInput} from 'react-native';
 import React from 'react';
 import AppText from './AppText';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Colors} from '../../utils';
 
 export default function TabHeader() {
   return (
@@ -49,9 +50,11 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     display: 'flex',
-    width: '95%',
+    width: '100%',
+    paddingLeft: 10,
+    paddingRight: 10,
     alignSelf: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.primary,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

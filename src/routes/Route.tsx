@@ -12,8 +12,8 @@ const Route = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Group screenOptions={{headerShown: false}}>
-          <Stack.Screen name={loginSreenID} component={Hero} />
-          <Stack.Screen name={HeroScreenID} component={Login} />
+          <Stack.Screen name={HeroScreenID} component={Hero} />
+          <Stack.Screen name={loginSreenID} component={Login} />
         </Stack.Group>
         <Stack.Group>
           <Stack.Screen
