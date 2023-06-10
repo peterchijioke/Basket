@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React, {useLayoutEffect} from 'react';
 import Header from '../common/Header';
 import {useNavigation} from '@react-navigation/native';
@@ -12,10 +12,12 @@ export default function LoginLayout({}) {
   return (
     <View style={styles.wrapper}>
       <Header />
-      <LayoutWrapper>
-        <LoginTextTop />
-        <LoginForm />
-      </LayoutWrapper>
+      <ScrollView>
+        <LayoutWrapper>
+          <LoginTextTop />
+          <LoginForm />
+        </LayoutWrapper>
+      </ScrollView>
     </View>
   );
 }
@@ -41,7 +43,6 @@ const styles = StyleSheet.create({
   },
   txtWrapLogin: {
     width: '100%',
-    // height: '20%',
     marginTop: 25,
     // backgroundColor: 'green',
     alignItems: 'center',

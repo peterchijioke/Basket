@@ -3,7 +3,6 @@ import React from 'react';
 import AppText from '../common/AppText';
 import GoogleIcon from 'react-native-vector-icons/Ionicons';
 import LoginSocialButton from './LoginSocialButton';
-import App from '../../../App';
 export default function EmailSection() {
   return (
     <View
@@ -25,15 +24,7 @@ export default function EmailSection() {
           icon={<GoogleIcon color={'tomato'} name="logo-google" size={25} />}
         />
       </View>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: 26,
-        }}>
+      <View style={styles.txtWrap}>
         <AppText styles={styles.dontHaveTxt}>Don't have an account?</AppText>
         <AppText styles={styles.signuptxt}>Sign Up</AppText>
       </View>
@@ -62,5 +53,13 @@ const styles = StyleSheet.create({
   },
   dontHaveTxt: {
     fontSize: 16,
+  },
+  txtWrap: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 26,
   },
 });

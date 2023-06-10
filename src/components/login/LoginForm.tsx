@@ -10,23 +10,21 @@ import EmailSection from './EmailSection';
 export default function LoginForm() {
   const [toggleCheckBox, setToggleCheckBox] = useState<boolean>(false);
   return (
-    <ScrollView style={{flex: 1}}>
-      <View style={styles.wrapper}>
-        <AppTextInputEmail styles={{marginBottom: 15}} />
-        <AppTextInputPassword />
-        <View style={styles.checkboxWrapper}>
-          <CheckBox
-            disabled={false}
-            value={toggleCheckBox}
-            onValueChange={newValue => setToggleCheckBox(newValue)}
-          />
-          <AppText>Remember me</AppText>
-        </View>
-        <LoginButton onClick={() => {}} />
-        <AppText styles={styles.forgotTxt}>Forgot Password?</AppText>
-        <EmailSection />
+    <View style={styles.wrapper}>
+      <AppTextInputEmail styles={{marginBottom: 15}} />
+      <AppTextInputPassword />
+      <View style={styles.checkboxWrapper}>
+        <CheckBox
+          disabled={false}
+          value={toggleCheckBox}
+          onValueChange={newValue => setToggleCheckBox(newValue)}
+        />
+        <AppText>Remember me</AppText>
       </View>
-    </ScrollView>
+      <LoginButton onClick={() => {}} />
+      <AppText styles={styles.forgotTxt}>Forgot Password?</AppText>
+      <EmailSection />
+    </View>
   );
 }
 const styles = StyleSheet.create({
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
     paddingTop: 35,
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#ccc',
+    // backgroundColor: '#ccc',
     alignSelf: 'center',
     flexGrow: 1,
   },
