@@ -7,12 +7,12 @@ import Login from '../screens/Login';
 const Stack = createNativeStackNavigator();
 
 const Route = () => {
-  // call login state
-  const isLoggedIn = false;
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* {isLoggedIn ? ( */}
+        <Stack.Group screenOptions={{headerShown: false}}>
+          <Stack.Screen name="SignIn" component={Login} />
+        </Stack.Group>
         <Stack.Group>
           <Stack.Screen
             options={{
@@ -22,11 +22,6 @@ const Route = () => {
             component={Tabs}
           />
         </Stack.Group>
-        {/* ) : ( */}
-        <Stack.Group screenOptions={{headerShown: false}}>
-          <Stack.Screen name="SignIn" component={Login} />
-        </Stack.Group>
-        {/* )} */}
       </Stack.Navigator>
     </NavigationContainer>
   );
