@@ -1,4 +1,10 @@
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import React from 'react';
 import AppText from '../common/AppText';
 
@@ -14,7 +20,11 @@ export default function LoginButton({...props}) {
         justifyContent: 'center',
       }}
       {...props}>
-      <AppText styles={styles.text}>LOGIN</AppText>
+      {props.progress ? (
+        <ActivityIndicator color={'white'} />
+      ) : (
+        <AppText styles={styles.text}>LOGIN</AppText>
+      )}
     </Pressable>
   );
 }

@@ -18,21 +18,26 @@ export default function LoginForm() {
   const [email, setEmail] = useState<string>('kminchelle');
   const [password, setPassword] = useState<string>('0lelplR');
   const [toggleCheckBox, setToggleCheckBox] = useState<boolean>(false);
+  const [progress, setProgress] = useState<boolean>(false);
   const handleChange =
     (setState: Dispatch<SetStateAction<string>>) => (text: string) => {
       setState(text);
     };
   const handleLogin = async () => {
+    setProgress(!progress);
     try {
       if (email === '' && password === '') {
         Alert.alert('Please enter email and password');
+        setProgress(!progress);
         return;
       }
       const result = await loginSevice(email, password);
       const data: UserInterface = await result?.json();
       _storeUser(data);
+      setProgress(!progress);
       navigation.navigate(tabName, {screen: `${homeScreenID}`});
     } catch (error: any) {
+      setProgress(!progress);
       console.log(error.message);
     }
   };
@@ -55,7 +60,7 @@ export default function LoginForm() {
         />
         <AppText>Remember me</AppText>
       </View>
-      <LoginButton onClick={handleLogin} />
+      <LoginButton progress={progress} onClick={handleLogin} />
       <AppText styles={styles.forgotTxt}>Forgot Password?</AppText>
       <EmailSection />
     </View>

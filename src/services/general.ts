@@ -12,14 +12,17 @@ const _storeUser = async (user:UserInterface) => {
   }
 };
 
-const _retrieveUser = async () => {
+const _retrieveUser = async ():Promise<UserInterface|null> => {
   try {
     const value = await AsyncStorage.getItem('token');
     if (value !== null) {
-     return JSON.parse(value)
+      const data:UserInterface=JSON.parse(value)
+     return data
     }
+    return null
   } catch (error:any) {
    console.log(error.message)
+   return null
   }
 };
 

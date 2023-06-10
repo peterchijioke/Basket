@@ -16,4 +16,15 @@ return res
 
 }
 
-export {loginSevice}
+const getUserService = async()=>{
+try {
+  const res = await fetch('https://dummyjson.com/users',{
+      headers: { 'Content-Type': 'application/json' },
+  })
+return res;
+} catch (error:any) {
+  console.log(error.message)
+}
+}
+
+export {loginSevice,getUserService}
