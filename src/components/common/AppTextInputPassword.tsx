@@ -15,6 +15,7 @@ export default function AppTextInputPassword({...props}) {
       />
       {eyeState ? (
         <Eye
+          style={{marginRight: 15}}
           onPress={() => setEyeState(!eyeState)}
           color={'#5f5a5a'}
           name="eye-off-outline"
@@ -22,6 +23,7 @@ export default function AppTextInputPassword({...props}) {
         />
       ) : (
         <Eye
+          style={{marginRight: 15}}
           onPress={() => setEyeState(!eyeState)}
           color={'#5f5a5a'}
           name="eye-outline"

@@ -5,8 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Header() {
   return (
-    <View
-      style={{...styles.wrapper, height: Number(StatusBar.currentHeight) * 3}}>
+    <View style={{...styles.wrapper, height: 60}}>
       <View style={styles.cartTop}>
         <Ionicons
           style={{textAlign: 'center'}}
