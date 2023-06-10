@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs, {tabName} from './Tabs';
 import Login, {loginSreenID} from '../screens/Login';
 import Hero, {HeroScreenID} from '../screens/Hero';
+import Landing, {landinScreenID} from '../screens/Landing';
 const Stack = createNativeStackNavigator();
 
 const Route = () => {
@@ -12,6 +13,7 @@ const Route = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Group screenOptions={{headerShown: false}}>
+          <Stack.Screen name={landinScreenID} component={Landing} />
           <Stack.Screen name={HeroScreenID} component={Hero} />
           <Stack.Screen name={loginSreenID} component={Login} />
         </Stack.Group>
