@@ -5,13 +5,19 @@ import {
   Image,
   ImageBackground,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
 import {Colors} from '../../utils';
 import CartIcon from 'react-native-vector-icons/Ionicons';
 import AppText from '../common/AppText';
+import App from '../../../App';
+import {useNavigation} from '@react-navigation/native';
+import {loginSreenID} from '../../screens/Login';
+import {HeroScreenID} from '../../screens/Hero';
 
 export default function LandingLayout() {
+  const navigation: any = useNavigation();
   return (
     <View style={{flex: 1}}>
       <StatusBar
@@ -46,6 +52,25 @@ export default function LandingLayout() {
             <AppText styles={{...styles.txt2}}>Start Shopping.</AppText>
             <AppText styles={{...styles.txt2}}>Stay happy.</AppText>
             <AppText styles={{...styles.txt2}}>Aytime.</AppText>
+          </View>
+          <View style={styles.bottom}>
+            <AppText styles={styles.botTxt}>Basket Online Market place</AppText>
+            <View style={styles.nextBackWrapper}>
+              <AppText
+                onPress={() => {
+                  navigation.navigate(`${loginSreenID}`);
+                }}
+                styles={styles.nextSkip}>
+                Skip
+              </AppText>
+              <AppText
+                onPress={() => {
+                  navigation.navigate(`${HeroScreenID}`);
+                }}
+                styles={styles.nextSkip}>
+                Next
+              </AppText>
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -91,5 +116,39 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 15,
+  },
+  bottom: {
+    height: 90,
+    width: '100%',
+    // backgroundColor: 'tomato',
+    position: 'absolute',
+    bottom: 0,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  nextBackWrapper: {
+    width: '90%',
+    height: '50%',
+    display: 'flex',
+    position: 'absolute',
+    bottom: 0,
+    // backgroundColor: '#133',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginRight: 10,
+    marginLeft: 10,
+  },
+  botTxt: {
+    color: 'tomato',
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: '900',
+  },
+  nextSkip: {
+    fontWeight: '900',
+    fontSize: 16,
+    color: 'tomato',
   },
 });

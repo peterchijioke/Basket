@@ -12,7 +12,7 @@ export default function LoginLayout({}) {
   return (
     <View style={styles.wrapper}>
       <Header />
-      <ScrollView>
+      <ScrollView style={{flexGrow: 1}}>
         <LayoutWrapper>
           <LoginTextTop />
           <LoginForm />

@@ -63,7 +63,7 @@ export default function Tabs() {
   // }, []);
 
   return (
-    <React.Fragment>
+    <View style={{flexGrow: 1}}>
       <TabHeader />
       <StatusBar barStyle="light-content" backgroundColor="#133" />
       <Tab.Navigator
@@ -115,7 +115,7 @@ export default function Tabs() {
         <Tab.Screen name={accountScreenID} component={Account} />
         <Tab.Screen name={cartScreenID} component={Cart} />
       </Tab.Navigator>
-    </React.Fragment>
+    </View>
   );
 }
 const styles: any = StyleSheet.create({
